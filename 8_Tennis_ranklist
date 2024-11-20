@@ -1,0 +1,30 @@
+# ▪	W - ако е победител получава 2000 точки
+# ▪	F - ако е финалист получава 1200 точки
+# SF - ако е полуфиналист получава 720 точки
+import math
+
+tours_count = int(input())
+starting_points = int(input())
+
+points = 0
+won_count = 0
+
+
+for _ in range(tours_count):
+    level_of_tour = input()
+
+    if level_of_tour == "W":
+        points += 2000
+        won_count += 1
+    elif level_of_tour == "F":
+        points += 1200
+    elif level_of_tour == "SF":
+        points += 720
+
+total_points = starting_points + points
+average_points = points / tours_count
+won_tours_percent = (won_count / tours_count) * 100
+
+print(f"Final points: {total_points}")
+print(f"Average points: {math.floor(average_points)}")
+print(f"{won_tours_percent :.2f}%")
